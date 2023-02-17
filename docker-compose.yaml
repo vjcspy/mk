@@ -1,0 +1,61 @@
+version: "3.9"
+
+services:
+#  mysql:
+#    #    restart: always
+#    image: mysql:latest
+#    container_name: "${STACK_NAME}-mysql"
+#    hostname: "${STACK_NAME}-mysql"
+#    ports:
+#      - "3306:3306"
+#    volumes:
+#      - "./docker_data/mysql-${STACK_NAME}:/var/lib/mysql"
+#      - ./docker_data/logs/mysql:/var/log/mysql:delegated
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=root
+#      - MYSQL_PASSWORD=root
+#      - MYSQL_USER=admin
+#      - MYSQL_PORT=3306
+
+  postgres:
+    #    restart: always
+    image: postgres:latest
+    container_name: "${STACK_NAME}-postgres"
+    hostname: "${STACK_NAME}-postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./docker_data/postgres-${STACK_NAME}:/var/lib/postgresql/data"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+
+  rabbitmq:
+    #    restart: always
+    image: rabbitmq:3-management-alpine
+    hostname: "${STACK_NAME}-rabbitmq"
+    container_name: "${STACK_NAME}-rabbitmq"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - "./docker_data/rabbitmq-${STACK_NAME}/mnesia/:/var/lib/rabbitmq/mnesia"
+      # - ./docker_data/rabbitmq/log/:/var/log/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=123456aA@
+
+  mongo:
+    #    restart: always
+    image: mongo:latest
+    container_name: "${STACK_NAME}-mongodb"
+    hostname: "${STACK_NAME}-mongodb"
+    ports:
+      - "27018:27018"
+    volumes:
+      - "./docker_data/mongodb-${STACK_NAME}/mnesia/:/data/db"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=root
+      - MONGO_INITDB_DATABASE=mk
+

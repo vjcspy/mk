@@ -1,0 +1,7 @@
+packages:
+# Shared module
+  - 'shared/chitility'
+  - 'shared/scripts'
+# showcase
+  - 'apps/proxy-sls'
+  - 'apps/ts-node'

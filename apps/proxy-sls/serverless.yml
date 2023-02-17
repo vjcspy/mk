@@ -1,0 +1,63 @@
+service: mk-proxy-sls
+
+plugins:
+  - serverless-dotenv-plugin
+#  - serverless-plugin-typescript
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  region: us-east-1
+  runtime: nodejs18.x
+  stage: prod
+  profile: ggg
+  memorySize: 128
+  timeout: 10
+  logRetentionInDays: 30
+  logs:
+    httpApi: true
+  httpApi:
+    # metrics: true # Enable if you need
+    cors: true
+  environment:
+    NODE_ENV: production
+
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+    noPrependStageInUrl: true
+    reloadHandler: true
+  esbuild:
+    minify: true
+    bundle: true
+    packager: pnpm
+    keepNames: true
+    disableIncremental: true
+
+package:
+  individually: true
+
+functions:
+  main: # The name of the lambda function
+    # The module 'handler' is exported in the file 'src/lambda'
+    #    handler: build/main/index.handler
+    handler: src/index.handler
+    description: Handle api http request # optional, Description to publish to AWS
+    timeout: 20 # optional, in seconds, default is 6
+    events:
+      - http:
+          method: any
+          path: /{any+}
+          cors: #https://www.serverless.com/blog/cors-api-gateway-survival-guide
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Store
+          private: false
