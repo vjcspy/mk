@@ -1,0 +1,31 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "stock-prices/stock-prices/(.*)": "<rootDir>/../libs/stock-prices/src/$1",
+    "stock-prices/stock-prices": "<rootDir>/../libs/stock-prices/src",
+    "@sync-prices/sync-prices/(.*)": "<rootDir>/../libs/sync-prices/src/$1",
+    "@sync-prices/sync-prices": "<rootDir>/../libs/sync-prices/src",
+    "@sync/sync/(.*)": "<rootDir>/../libs/sync/src/$1",
+    "@sync/sync": "<rootDir>/../libs/sync/src",
+    "@core/core/(.*)": "<rootDir>/../libs/core/src/$1",
+    "@core/core": "<rootDir>/../libs/core/src",
+    "@reactive/reactive/(.*)": "<rootDir>/../libs/reactive/src/$1",
+    "@reactive/reactive": "<rootDir>/../libs/reactive/src",
+    "@prisma/prisma/(.*)": "<rootDir>/../libs/prisma/src/$1",
+    "@prisma/prisma": "<rootDir>/../libs/prisma/src",
+    "@queue/queue/(.*)": "<rootDir>/../libs/queue/src/$1",
+    "@queue/queue": "<rootDir>/../libs/queue/src",
+    "@lib/testbed/(.*)": "<rootDir>/../libs/testbed/src/$1",
+    "@lib/testbed": "<rootDir>/../libs/testbed/src"
+  }
+}

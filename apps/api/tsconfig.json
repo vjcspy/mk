@@ -1,0 +1,59 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@api": [
+        "src"
+      ],
+      "@api/*": [
+        "src/*"
+      ],
+      "@lib/core": [
+        "libs/core/src"
+      ],
+      "@lib/core/*": [
+        "libs/core/src/*"
+      ],
+      "@lib/reactive": [
+        "libs/reactive/src"
+      ],
+      "@lib/reactive/*": [
+        "libs/reactive/src/*"
+      ],
+      "@lib/prisma": [
+        "libs/prisma/src"
+      ],
+      "@lib/prisma/*": [
+        "libs/prisma/src/*"
+      ],
+      "@lib/queue": [
+        "libs/queue/src"
+      ],
+      "@lib/queue/*": [
+        "libs/queue/src/*"
+      ],
+      "@lib/testbed": [
+        "libs/testbed/src"
+      ],
+      "@lib/testbed/*": [
+        "libs/testbed/src/*"
+      ]
+    }
+  }
+}
