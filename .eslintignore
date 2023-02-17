@@ -2,4 +2,8 @@ node_modules
 !.*
 dist
 build
+.build
+.serverless
 .next
+logs
+docker_data
